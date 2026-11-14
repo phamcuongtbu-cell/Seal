@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name" translatable="false">Seal</string>
+    <string name="app_name" translatable="false">Otto</string>
+    <string name="otto_tagline">Video &amp; audio downloader</string>
+    <string name="otto_hero_title">Paste a link to download</string>
+    <string name="otto_hero_subtitle">Videos and music from the sites you love, saved to your device.</string>
     <string name="video_directory">Video folder</string>
     <string name="extract_audio">Save as audio</string>
     <string name="create_thumbnail">Save thumbnail</string>

@@ -32,12 +32,15 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.List
 import androidx.compose.material.icons.outlined.FileDownload
 import androidx.compose.material.icons.outlined.GridView
 import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.MoreVert
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.FloatingActionButton
@@ -47,6 +50,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
@@ -384,6 +388,10 @@ fun DownloadPageImplV2(
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Spacer(Modifier.height(with(LocalDensity.current) { headerOffset.toDp() }))
                     Header(onMenuOpen = onMenuOpen, modifier = Modifier.padding(horizontal = 16.dp))
+                    OttoHeroCard(
+                        modifier = Modifier.padding(horizontal = 20.dp, vertical = 8.dp),
+                        onDownloadClick = downloadCallback,
+                    )
                     SelectionGroupRow(
                         modifier =
                             Modifier.horizontalScroll(rememberScrollState())
@@ -559,14 +567,21 @@ private fun HeaderCompact(modifier: Modifier = Modifier, onMenuOpen: () -> Unit)
             )
         }
         Spacer(modifier = Modifier.width(4.dp))
-        Text(
-            stringResource(R.string.download_queue),
-            style =
-                MaterialTheme.typography.titleLarge.copy(
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Medium,
-                ),
-        )
+        Column {
+            Text(
+                stringResource(R.string.app_name),
+                style =
+                    MaterialTheme.typography.titleLarge.copy(
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Medium,
+                    ),
+            )
+            Text(
+                stringResource(R.string.otto_tagline),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
 
@@ -574,12 +589,56 @@ private fun HeaderCompact(modifier: Modifier = Modifier, onMenuOpen: () -> Unit)
 private fun HeaderExpanded(modifier: Modifier = Modifier) {
     Row(modifier = modifier.height(64.dp), verticalAlignment = Alignment.CenterVertically) {
         Spacer(modifier = Modifier.width(4.dp))
-        Text(
-            stringResource(R.string.download_queue),
-            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Medium),
-        )
+        Column {
+            Text(
+                stringResource(R.string.app_name),
+                style =
+                    MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Medium),
+            )
+            Text(
+                stringResource(R.string.otto_tagline),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
     Spacer(Modifier.height(4.dp))
+}
+
+@Composable
+private fun OttoHeroCard(modifier: Modifier = Modifier, onDownloadClick: () -> Unit = {}) {
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(24.dp),
+        color = MaterialTheme.colorScheme.primaryContainer,
+        contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+    ) {
+        Column(modifier = Modifier.padding(20.dp)) {
+            Text(
+                text = stringResource(R.string.otto_hero_title),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+            )
+            Spacer(Modifier.height(6.dp))
+            Text(
+                text = stringResource(R.string.otto_hero_subtitle),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Spacer(Modifier.height(16.dp))
+            Button(
+                onClick = onDownloadClick,
+                colors =
+                    ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFF97316),
+                        contentColor = Color.White,
+                    ),
+            ) {
+                Icon(Icons.Outlined.FileDownload, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(R.string.download))
+            }
+        }
+    }
 }
 
 @Composable

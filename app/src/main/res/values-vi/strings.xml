@@ -6,6 +6,9 @@
     <string name="settings">Thiết đặt</string>
     <string name="download_settings_desc">Tổng quan, định dạng, lệnh tùy chỉnh</string>
     <string name="download">Tải xuống</string>
+    <string name="otto_tagline">Tải video &amp; nhạc</string>
+    <string name="otto_hero_title">Dán link để tải xuống</string>
+    <string name="otto_hero_subtitle">Video và nhạc từ các trang bạn thích, lưu thẳng về máy.</string>
     <string name="url_empty">Đường dẫn không được bỏ trống</string>
     <string name="extract_audio_summary">Tải xuống và lưu âm thanh, thay vì video</string>
     <string name="create_thumbnail_summary">Lưu hình thu nhỏ dưới dạng tệp</string>
