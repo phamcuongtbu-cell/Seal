@@ -2,9 +2,11 @@
 
 <img width="" src="fastlane/metadata/android/en-US/images/icon.png"  width=160 height=160  align="center">
 
-# Seal
+# Otto
 
 ### Video/Audio Downloader for Android
+
+Otto is a personalized fork of [Seal](https://github.com/JunkFood02/Seal), rebranded with a new name, icon, and teal + coral Material 3 theme.
 
 
 English
@@ -120,7 +122,7 @@ Join our [Telegram Channel](https://t.me/seal_app) or [Matrix Space](https://mat
 <p><!-- sponsors --><a href="https://github.com/Opposum102"><img src="https:&#x2F;&#x2F;github.com&#x2F;Opposum102.png" width="60px" alt="User avatar: " /></a><!-- sponsors --></p>
 
 
-Seal will be always free and open source for everyone. If you like it, please consider [sponsoring me](https://github.com/sponsors/JunkFood02)!
+Otto will be always free and open source for everyone. If you like it, please consider [sponsoring me](https://github.com/sponsors/JunkFood02)!
 
 ## 🤝 Contributing
 
